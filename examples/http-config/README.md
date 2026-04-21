@@ -1,9 +1,11 @@
-# Example: HTTP config file
+# Example: HTTP config file ⚙️
+
+> 🌷 Small, readable HTTP hardening through `docs-drift.config.json`.
 
 This example shows how to move HTTP hardening settings into `docs-drift.config.json`
 instead of passing everything through CLI flags.
 
-## What this example demonstrates
+## What this example demonstrates ✨
 
 - `allowHosts`
 - `timeoutMs`
@@ -15,7 +17,7 @@ The config file allows loopback traffic to `127.0.0.1`, sets a request timeout, 
 up to two redirects, caps the response body size, and disables private-network blocking
 for this local example so loopback literals can be used outside production CI defaults.
 
-## Run locally
+## Run locally 🏃
 
 Start the mock server:
 
@@ -31,7 +33,7 @@ npx pnpm docs-drift verify --root=examples/http-config --sandbox=local
 
 No extra HTTP flags are required because the project config file provides them.
 
-## Executable snippets
+## Executable snippets 📎
 
 Direct request:
 

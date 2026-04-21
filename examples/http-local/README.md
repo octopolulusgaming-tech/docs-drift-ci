@@ -1,4 +1,6 @@
-# Example: local HTTP verification
+# Example: local HTTP verification 🌐
+
+> 🫶 A local-first HTTP example that stays friendly to run and easy to read.
 
 Run `node mock-server.mjs` in this directory and then verify the docs:
 
