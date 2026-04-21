@@ -1,16 +1,16 @@
-# GitHub Action
+# GitHub Action 🤖
 
 `@docs-drift/github-action` runs the same verification pipeline as the CLI and is the recommended adoption path for external repositories in `v0.1.0`.
 
 Release tags bundle the Action entrypoint so consumers do not need to build the Action itself before using `@v0.1.0`.
 
-## What it is good for
+## What it is good for 🌟
 
 - failing PRs when runnable docs drift
 - enforcing HTTP hardening in CI
 - keeping checked-in docs config while allowing CI-specific overrides
 
-## Precedence
+## Precedence 🧭
 
 HTTP and runtime options resolve in this order:
 
@@ -20,7 +20,7 @@ HTTP and runtime options resolve in this order:
 
 This means the repo can keep stable defaults in version control while CI only overrides what is genuinely environment-specific.
 
-## Supported HTTP inputs
+## Supported HTTP inputs 🧰
 
 - `http-allow-hosts`
 - `http-timeout-ms`
@@ -30,7 +30,7 @@ This means the repo can keep stable defaults in version control while CI only ov
 
 `http-allow-hosts` accepts comma-separated or newline-separated values.
 
-## Minimal external usage
+## Minimal external usage 🪄
 
 ```yaml
 - uses: your-org/docs-drift-ci/apps/github-action@v0.1.0
@@ -40,7 +40,7 @@ This means the repo can keep stable defaults in version control while CI only ov
 
 Replace `your-org/docs-drift-ci` with the published repository path for Docs Drift.
 
-## Recommended usage with HTTP defaults
+## Recommended usage with HTTP defaults 🌈
 
 ```yaml
 - uses: your-org/docs-drift-ci/apps/github-action@v0.1.0
@@ -54,14 +54,14 @@ Replace `your-org/docs-drift-ci` with the published repository path for Docs Dri
 
 If your repository already defines `docs-drift.config.json`, keep most HTTP policy there and only override the few fields that differ in CI.
 
-## Copy/paste template
+## Copy/paste template 📋
 
 - [templates/basic/.github/workflows/docs-drift.yml](../../templates/basic/.github/workflows/docs-drift.yml)
 
-## HTTP reference and troubleshooting
+## HTTP reference and troubleshooting 🧰
 
 - [docs/reference/http-behavior.md](../../docs/reference/http-behavior.md)
 
-## Adoption guide
+## Adoption guide 🌱
 
 - [docs/user-guide/adoption.md](../../docs/user-guide/adoption.md)

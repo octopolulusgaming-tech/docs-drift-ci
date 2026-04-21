@@ -1,11 +1,13 @@
-# Docs Drift CI
+# Docs Drift CI ✨
 
 Docs Drift CI verifies that executable examples in `README.md` and `docs/**/*.md`
 still match the real behavior of your code.
 
+> 🌿 Warm, practical docs verification for shell and HTTP snippets.
+
 `v0.1.0` is the first public MVP release of the project.
 
-## Why Docs Drift
+## Why Docs Drift 💡
 
 Docs Drift exists for a specific problem: documentation rots faster than code reviews catch it.
 
@@ -32,7 +34,7 @@ Do not expect it to be:
 - a plugin marketplace
 - a general-purpose browser automation tool
 
-## 5-Minute Quickstart
+## 5-Minute Quickstart 🚀
 
 The fastest way to evaluate Docs Drift today is to run the checked-in example:
 
@@ -54,7 +56,7 @@ Canonical onboarding guide:
 
 - [docs/user-guide/getting-started.md](docs/user-guide/getting-started.md)
 
-## Quickstart In Your Repo
+## Quickstart In Your Repo 🧭
 
 For third-party adoption, the recommended `v0.1.0` path is:
 
@@ -75,7 +77,7 @@ Public beta loop:
 - triage guide: [docs/maintainers/v0.1.1-triage.md](docs/maintainers/v0.1.1-triage.md)
 - issue templates: [`.github/ISSUE_TEMPLATE`](.github/ISSUE_TEMPLATE)
 
-## What v0.1.0 Includes
+## What v0.1.0 Includes 📦
 
 - Markdown discovery for `README.md` and `docs/**/*.md`
 - Parsing of fenced `bash`, `sh`, `json`, and `curl` blocks
@@ -97,7 +99,7 @@ Public beta loop:
   - max body size
   - private-network policy for literal IPs
 
-## Canonical Flows
+## Canonical Flows 🗺️
 
 | Flow | Recommended path |
 |---|---|
@@ -108,7 +110,7 @@ Public beta loop:
 | CI adoption | [apps/github-action/README.md](apps/github-action/README.md) |
 | HTTP behavior and troubleshooting | [docs/reference/http-behavior.md](docs/reference/http-behavior.md) |
 
-## Minimal Config
+## Minimal Config ⚙️
 
 `docs-drift.config.json` lives at the root of the repo being verified:
 
@@ -131,7 +133,7 @@ Configuration precedence is explicit:
 2. `docs-drift.config.json`
 3. built-in defaults
 
-## GitHub Action Quickstart
+## GitHub Action Quickstart 🤖
 
 Minimal CI shape for external repos:
 
@@ -165,7 +167,7 @@ The Action supports HTTP overrides when CI needs different limits or hosts than 
 - `http-max-body-bytes`
 - `http-block-private-networks`
 
-## Known Limitations
+## Known Limitations 🧩
 
 Visible limitations matter more than aspirational ones in `v0.1.0`:
 
@@ -176,7 +178,7 @@ Visible limitations matter more than aspirational ones in `v0.1.0`:
 - generic long stderr may still be truncated in some reports, although operational HTTP errors are preserved
 - the recommended public adoption path today is the GitHub Action plus checked-in config; standalone package distribution is not the focus of this release
 
-## Read Next
+## Read Next 📚
 
 - [docs/user-guide/getting-started.md](docs/user-guide/getting-started.md)
 - [docs/user-guide/adoption.md](docs/user-guide/adoption.md)

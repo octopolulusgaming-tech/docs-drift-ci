@@ -1,14 +1,14 @@
-# Basic Adoption Template
+# Basic Adoption Template 🌱
 
-Copy this template into a target repository when you want the smallest useful Docs Drift setup.
+> ✨ Copy this template into a target repository when you want the smallest useful Docs Drift setup.
 
-## Included files
+## Included files 📎
 
 - [templates/basic/docs-drift.config.json](docs-drift.config.json)
 - [templates/basic/docs/verified-examples.md](docs/verified-examples.md)
 - [templates/basic/.github/workflows/docs-drift.yml](.github/workflows/docs-drift.yml)
 
-## How to use it
+## How to use it 🧭
 
 1. Copy the three files into your repo.
 2. Replace `your-org/docs-drift-ci` in the workflow with the published repository path for this project.
@@ -16,13 +16,13 @@ Copy this template into a target repository when you want the smallest useful Do
 4. Start with the shell snippet in `docs/verified-examples.md`.
 5. Add HTTP snippets only after the first shell example is green.
 
-## Recommended first commit
+## Recommended first commit ✅
 
 - keep the shell example as-is
 - set `http.allowHosts` only if your repo already has HTTP examples
 - keep CI overrides minimal
 
-## Why this template is conservative
+## Why this template is conservative 🧱
 
 It is designed to avoid the most common first-week mistakes:
 
@@ -31,7 +31,7 @@ It is designed to avoid the most common first-week mistakes:
 - moving every knob into CI instead of checking config into the repo
 - introducing HTTP examples before the team has one green local example
 
-## Pilot-ready rollout
+## Pilot-ready rollout 🚀
 
 When you try Docs Drift in a real repo:
 
