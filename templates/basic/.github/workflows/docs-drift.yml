@@ -1,0 +1,35 @@
+name: docs-drift
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Add your project setup here if snippets depend on local tooling.
+      # For example:
+      # - uses: pnpm/action-setup@v4
+      #   with:
+      #     version: 10
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 22
+      #     cache: pnpm
+      # - run: pnpm install --frozen-lockfile
+
+      - name: Verify docs
+        uses: your-org/docs-drift-ci/apps/github-action@v0.1.0
+        with:
+          sandbox: docker
+          http-timeout-ms: "5000"
+          http-max-redirects: "3"
+          http-max-body-bytes: "262144"
+          http-block-private-networks: "true"
+          # Add only the hosts your verified curl examples really call.
+          # http-allow-hosts: |
+          #   api.example.com

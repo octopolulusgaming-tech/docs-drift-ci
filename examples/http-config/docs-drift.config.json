@@ -1,0 +1,9 @@
+{
+  "http": {
+    "allowHosts": ["127.0.0.1"],
+    "timeoutMs": 1000,
+    "maxRedirects": 2,
+    "maxBodyBytes": 4096,
+    "blockPrivateNetworks": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "include": ["README.md", "docs/**/*.md"],
+  "http": {
+    "allowHosts": ["api.example.com"],
+    "timeoutMs": 5000,
+    "maxRedirects": 3,
+    "maxBodyBytes": 262144,
+    "blockPrivateNetworks": true
+  }
+}

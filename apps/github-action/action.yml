@@ -1,0 +1,28 @@
+name: "Docs Drift CI"
+description: "Verify executable docs snippets in pull requests"
+runs:
+  using: "node20"
+  main: "dist/index.js"
+inputs:
+  sandbox:
+    description: "Sandbox mode: docker|local"
+    required: false
+    default: "docker"
+  timeout-ms:
+    description: "Optional global verify timeout in milliseconds"
+    required: false
+  http-allow-hosts:
+    description: "Comma or newline separated HTTP allowlist entries"
+    required: false
+  http-timeout-ms:
+    description: "HTTP request timeout in milliseconds"
+    required: false
+  http-max-redirects:
+    description: "Maximum redirects per HTTP request"
+    required: false
+  http-max-body-bytes:
+    description: "Maximum HTTP response body size in bytes"
+    required: false
+  http-block-private-networks:
+    description: "Whether to block private or loopback IP literals outside local sandbox"
+    required: false

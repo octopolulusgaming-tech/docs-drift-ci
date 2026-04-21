@@ -1,0 +1,36 @@
+{
+  "name": "@docs-drift/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "docs-drift": "src/bin.ts"
+  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "docs-drift": "tsx src/bin.ts"
+  },
+  "dependencies": {
+    "@docs-drift/assertions-http": "workspace:*",
+    "@docs-drift/assertions-json": "workspace:*",
+    "@docs-drift/config": "workspace:*",
+    "@docs-drift/discovery": "workspace:*",
+    "@docs-drift/parser": "workspace:*",
+    "@docs-drift/planner": "workspace:*",
+    "@docs-drift/reporter-core": "workspace:*",
+    "@docs-drift/reporter-markdown": "workspace:*",
+    "@docs-drift/runner-core": "workspace:*",
+    "@docs-drift/runner-http": "workspace:*",
+    "@docs-drift/runner-shell": "workspace:*",
+    "@docs-drift/shared": "workspace:*"
+  }
+}

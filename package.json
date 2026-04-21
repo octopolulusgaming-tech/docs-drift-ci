@@ -1,0 +1,41 @@
+{
+  "name": "docs-drift-ci",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Continuous verification for executable documentation snippets in README files and docs.",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "ci",
+    "markdown",
+    "readme",
+    "curl",
+    "verification"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "quickstart": "pnpm docs-drift verify --root=examples/basic --sandbox=local",
+    "docs-drift": "pnpm --filter @docs-drift/cli run docs-drift",
+    "verify": "pnpm docs-drift verify"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "esbuild": "^0.28.0",
+    "fast-glob": "^3.3.3",
+    "remark-parse": "^11.0.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "unified": "^11.0.5",
+    "vitest": "^1.6.1",
+    "zod": "^3.24.4"
+  }
+}

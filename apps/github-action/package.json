@@ -1,0 +1,21 @@
+{
+  "name": "@docs-drift/github-action",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "files": [
+    "action.yml",
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node ./build.mjs",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@docs-drift/cli": "workspace:*"
+  }
+}

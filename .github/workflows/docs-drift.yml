@@ -1,0 +1,69 @@
+name: docs-drift
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Run Docs Drift Action
+        uses: ./apps/github-action
+        with:
+          sandbox: docker
+          http-allow-hosts: |
+            api.example.com
+            *.example.com
+          http-timeout-ms: "5000"
+          http-max-redirects: "3"
+          http-max-body-bytes: "262144"
+          http-block-private-networks: "true"
+      - name: Comment PR summary
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summaryPath = '.docs-drift/summary.md';
+            if (!fs.existsSync(summaryPath)) {
+              return;
+            }
+            const marker = '<!-- docs-drift-ci -->';
+            const body = `${marker}\n${fs.readFileSync(summaryPath, 'utf8')}`;
+            const issue_number = context.payload.pull_request.number;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number
+            });
+            const existing = comments.find((comment) => comment.body && comment.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body
+              });
+              return;
+            }
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body
+            });
