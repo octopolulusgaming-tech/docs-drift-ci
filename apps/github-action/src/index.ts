@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { verifyDocs } from "@docs-drift/cli";
 
 async function appendStepSummary(summaryPath: string, env: NodeJS.ProcessEnv = process.env): Promise<void> {
@@ -105,19 +104,4 @@ export async function runGitHubAction(
 
   await appendStepSummary(path.join(options.rootDir, options.summaryFile), env);
   return exitCode;
-}
-
-async function main(): Promise<void> {
-  const exitCode = await runGitHubAction();
-  process.exit(exitCode);
-}
-
-const isEntrypoint = process.argv[1] ? path.resolve(process.argv[1]) === fileURLToPath(import.meta.url) : false;
-
-if (isEntrypoint) {
-  main().catch((error) => {
-    const message = error instanceof Error ? error.message : String(error);
-    process.stderr.write(`[docs-drift-action] ${message}\n`);
-    process.exit(1);
-  });
 }

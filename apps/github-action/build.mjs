@@ -1,10 +1,13 @@
+import { rm } from "node:fs/promises";
 import { build } from "esbuild";
 
+await rm("dist", { recursive: true, force: true });
+
 await build({
-  entryPoints: ["src/index.ts"],
-  outfile: "dist/index.js",
+  entryPoints: ["src/entrypoint.ts"],
+  outfile: "dist/index.cjs",
   bundle: true,
-  format: "esm",
+  format: "cjs",
   platform: "node",
   target: "node20",
   sourcemap: false,
